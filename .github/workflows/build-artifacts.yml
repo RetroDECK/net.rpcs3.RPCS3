@@ -9,11 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  install-dependencies:
-    uses: RetroDECK/components-template/.github/workflows/install_dependencies.yml@main
 
   build-project:
-    needs: install-dependencies  # Ensures this job only runs after install-dependencies
     uses: RetroDECK/components-template/.github/workflows/build_artifacts.yml@main
     with:
         MANIFEST_FILENAME: "net.rpcs3.RPCS3.yaml"
