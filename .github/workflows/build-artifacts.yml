@@ -10,17 +10,7 @@ on:
 
 jobs:
 
-  repo-clone:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Clone repo
-        uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-
   build-project:
     uses: RetroDECK/components-template/.github/workflows/build_artifacts.yml@main
-    needs: repo-clone
     with:
         MANIFEST_FILENAME: "net.rpcs3.RPCS3.yaml"
