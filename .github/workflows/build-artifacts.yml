@@ -7,14 +7,15 @@ on:
       - main
   workflow_call:
 
+env:
+  MANIFEST_FILENAME: "net.rpcs3.RPCS3.yaml"
+
 jobs:
   install-dependencies:
     uses: RetroDECK/components-template/.github/workflows/install_dependencies.yml@main
-    with:
-      # You can pass inputs here if the `install_dependencies.yml` workflow defines them
 
   build-project:
     needs: install-dependencies  # Ensures this job only runs after install-dependencies
     uses: RetroDECK/components-template/.github/workflows/build_artifacts.yml@main
     with:
-      # Pass inputs as needed if the `build_artifacts.yml` workflow defines them
+      MANIFEST_FILENAME: ${{ env.MANIFEST_FILENAME }}
