@@ -6,6 +6,7 @@ on:
       - master
       - main
   workflow_call:
+  workflow_dispatch:
 
 env:
   MANIFEST_FILENAME: "net.rpcs3.RPCS3.yaml"
